@@ -1,2 +1,2 @@
 # Roguelike-Game-Project
-In this game, I will implement everything I got from Unity Learn and YouTube
+This is for a project in Unity Learn
