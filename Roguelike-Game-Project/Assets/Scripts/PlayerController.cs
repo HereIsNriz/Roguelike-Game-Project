@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(m_horizontalInput, 0, m_verticalInput);
+        Vector3 movement = new Vector3(m_horizontalInput, 0, m_verticalInput).normalized;
         transform.Translate(movement * m_speed * Time.deltaTime);
     }
 }
