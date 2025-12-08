@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3436108699249230922}
+  - component: {fileID: -5101230228797605410}
   - component: {fileID: 5006781534763519885}
   - component: {fileID: 899026768200772292}
   - component: {fileID: 145532835870147197}
   m_Layer: 0
   m_Name: Small Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +35,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5101230228797605410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147538594374623018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032098d5c231b9f4085c591a1018f427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Poin: 0
 --- !u!33 &5006781534763519885
 MeshFilter:
   m_ObjectHideFlags: 0

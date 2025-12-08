@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
+    public bool IsGameRunning;
+
     [SerializeField] private GameObject[] m_tress;
 
-    private bool isGameRunning;
     private float m_spawnDelay;
     private float m_minSpawnDelay = 2f;
     private float m_maxSpawnDelay = 4f;
@@ -15,7 +16,7 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isGameRunning = true;
+        IsGameRunning = true;
         StartCoroutine(SpawnTrees());
     }
 
@@ -27,7 +28,7 @@ public class MainManager : MonoBehaviour
 
     private IEnumerator SpawnTrees()
     {
-        while (isGameRunning)
+        while (IsGameRunning)
         {
             yield return new WaitForSeconds(GenerateRandomDelay());
 
