@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainManager : MonoBehaviour
 {
     public bool IsGameRunning;
+    public int Score;
 
     [SerializeField] private GameObject[] m_tress;
     [SerializeField] private GameObject m_gameOverPanel;
+    [SerializeField] private TextMeshProUGUI m_scoreText;
 
     private float m_spawnDelay;
     private float m_minSpawnDelay = 2f;
@@ -24,6 +27,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         IsGameRunning = true;
+        Score = 0;
         StartCoroutine(SpawnTrees());
     }
 
@@ -31,6 +35,7 @@ public class MainManager : MonoBehaviour
     void Update()
     {
         GameOver();
+        UpdateScoreText();
     }
 
     private IEnumerator SpawnTrees()
@@ -67,6 +72,7 @@ public class MainManager : MonoBehaviour
     {
         if (!IsGameRunning)
         {
+            m_scoreText.gameObject.SetActive(false);
             m_gameOverPanel.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
@@ -75,5 +81,10 @@ public class MainManager : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void UpdateScoreText()
+    {
+        m_scoreText.text = $"Score:\n{Score}";
     }
 }

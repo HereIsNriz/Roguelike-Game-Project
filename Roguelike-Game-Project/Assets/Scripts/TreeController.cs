@@ -33,7 +33,7 @@ public class TreeController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            // poin ++
+            mainManager.Score += m_poin;
         }
     }
 
