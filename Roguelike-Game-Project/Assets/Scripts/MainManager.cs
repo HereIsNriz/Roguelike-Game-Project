@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
     public bool IsGameRunning;
 
     [SerializeField] private GameObject[] m_tress;
+    [SerializeField] private GameObject m_gameOverPanel;
 
     private float m_spawnDelay;
     private float m_minSpawnDelay = 2f;
     private float m_maxSpawnDelay = 4f;
     private float m_boundary = 14f;
+
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +30,7 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameOver();
     }
 
     private IEnumerator SpawnTrees()
@@ -54,5 +61,19 @@ public class MainManager : MonoBehaviour
     {
         float m_randomSpawnLocation = Random.Range(-m_boundary, m_boundary);
         return m_randomSpawnLocation;
+    }
+
+    private void GameOver()
+    {
+        if (!IsGameRunning)
+        {
+            m_gameOverPanel.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
